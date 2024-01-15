@@ -1,3 +1,9 @@
 import { loadCollections } from "./lib/load/load-collections";
+import loadRelations from "./lib/load/load-relations";
 
-loadCollections().then((r) => {});
+const start = async () => {
+  await loadCollections();
+  await loadRelations();
+};
+
+start();
