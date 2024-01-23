@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 
+const __dirname = new URL(".", import.meta.url).pathname;
+
 export const writeToFile = (fileName: string, contents: Object) => {
   const outputPath = path.join(__dirname, "../../out");
   if (!fs.existsSync(outputPath)) {
@@ -18,6 +20,6 @@ export const readFromFile = (fileName: string) => {
 export const clearFolder = () => {
   const outputPath = path.join(__dirname, "../../out");
   if (fs.existsSync(outputPath)) {
-    fs.rmdirSync(outputPath, { recursive: true });
+    fs.rmSync(outputPath, { recursive: true });
   }
 };

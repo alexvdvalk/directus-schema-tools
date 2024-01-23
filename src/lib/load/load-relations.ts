@@ -1,20 +1,19 @@
-import { createRelation } from "@directus/sdk";
-import { destination } from "../directus";
-import { readFromFile } from "../file-interactions";
+import { RestClient, createRelation } from "@directus/sdk";
+import { readFromFile } from "../file-interactions.js";
 
-export default async () => {
+export default async (client: RestClient<any>) => {
   const relations = readFromFile("relations.json");
   const a = relations.map((i) => {
     delete i.meta.id;
     return i;
   });
-  await addRelations(a);
+  await addRelations(a, client);
 };
 
-const addRelations = async (relations: any[]) => {
+const addRelations = async (relations: any[], client: RestClient<any>) => {
   for await (const relation of relations) {
     try {
-      await destination.request(createRelation(relation));
+      await client.request(createRelation(relation));
     } catch (e) {
       console.log(e);
     }

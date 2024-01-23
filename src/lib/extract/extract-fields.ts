@@ -1,8 +1,7 @@
-import { readCollections, readFields } from "@directus/sdk";
-import { client } from "../directus";
-import { writeToFile } from "../file-interactions";
+import { RestClient, readFields } from "@directus/sdk";
+import { writeToFile } from "../file-interactions.js";
 
-export default async () => {
+export default async (client: RestClient<any>) => {
   const result = await client.request(readFields());
 
   const fields = result
