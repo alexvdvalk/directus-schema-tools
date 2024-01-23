@@ -1,18 +1,16 @@
 {
   "name": "directus-schema-tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "New approach to deploying schemas to Directus. This will enable users to choose multiple schemas because it doesn't rely on the /schema api",
   "main": "./lib/extract.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "extract": "ts-node src/extract.ts",
     "dev": "ts-node --esm src/index.ts",
-    "load": "ts-node src/load.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "dschema": "./dist/index.js"
+    "directus-schema-tools": "./dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +21,8 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
+  "repository": "https://github.com/alexvdvalk/directus-schema-tools",
+  "homepage": "https://github.com/alexvdvalk/directus-schema-tools",
   "dependencies": {
     "@directus/sdk": "^14.0.0",
     "@inquirer/prompts": "^3.3.0",

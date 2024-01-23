@@ -9,7 +9,7 @@ console.log(figlet.textSync("Directus Schema Tools"));
 const getUrl = async () => {
   const answer = await input({
     message: "Enter your Directus URL",
-    default: "https://avcloudloader.directus.app",
+    default: "https://localhost:8090",
   });
   return answer;
 };
@@ -17,7 +17,6 @@ const getUrl = async () => {
 const getAuthToken = async () => {
   const answer = await input({
     message: "Enter your Directus Auth Token",
-    default: "_J4xA5Zj-aFRjqljJ5xVdnDl6WVQJbKe",
   });
   return answer;
 };
